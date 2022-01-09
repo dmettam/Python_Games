@@ -6,6 +6,7 @@ Created on Fri Jan  8 20:48:21 2022
 """
 
 from tkinter import * 
+from math import sqrt 
 
 root = Tk() 
 root.title("Simple Calculator") 
@@ -52,6 +53,28 @@ def button_divide():
     f_num = int(firstNumber) 
     f_oper = "division" 
     e.delete(0, END) 
+    
+def button_square():
+    firstNumber = e.get()  
+    global f_num 
+    f_num = int(firstNumber) * int(firstNumber) 
+    e.delete(0, END) 
+    e.insert(0, f_num)
+    
+def button_root():
+    firstNumber = e.get()  
+    global f_num 
+    #f_num = pow(firstNumber, 0.5) 
+    f_num = sqrt(int(firstNumber))
+    e.delete(0, END) 
+    e.insert(0, f_num)
+    
+def button_inverse():
+    firstNumber = e.get()  
+    global f_num 
+    f_num = 1 / int(firstNumber) 
+    e.delete(0, END) 
+    e.insert(0, f_num)
 
 def button_equal():
     secondNumber = e.get() 
@@ -87,6 +110,10 @@ button_subtract = Button(root, text="-", padx=40, pady=20, command=button_subtra
 button_multiply = Button(root, text="*", padx=40, pady=20, command=button_multiply)
 button_divide = Button(root, text="/", padx=40, pady=20, command=button_divide)
 
+button_square = Button(root, text="x^2", padx=32, pady=20, command=button_square)
+button_root = Button(root, text="sqrt(x)", padx=26, pady=20, command=button_root) 
+button_inverse = Button(root, text="1/x", padx=34, pady=20, command=button_inverse) 
+
 button_equal = Button(root, text="=", padx=87, pady=20, command=button_equal)
 button_clear = Button(root, text="clear", padx=79, pady=20, command=button_clear)
 
@@ -113,8 +140,9 @@ button_subtract.grid(row=6, column=0)
 button_multiply.grid(row=6, column=1)
 button_divide.grid(row=6, column=2) 
 
-
-
+button_square.grid(row=7, column=0)
+button_root.grid(row=7, column=1)
+button_inverse.grid(row=7, column=2)
 
 
 
