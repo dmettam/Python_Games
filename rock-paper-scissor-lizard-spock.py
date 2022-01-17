@@ -1,8 +1,8 @@
 """
-simple game application 
+Rock Paper Scissors Lizard Spock  
 
 Created on Fri Jan 7
-@author: デイン　メッタム 
+@author: Dane Mettam (デイン　メッタム)
 """
 
 from random import randint
@@ -11,12 +11,12 @@ from tkinter import *
 root = Tk() 
 root.title("Rock Paper Scissors Lizard Spock")
 
-e = Entry(root, width=35, borderwidth=3) 
-e.grid(row=0, column=1, columnspan=3, padx=10, pady=10) 
+# create a frame 
+frame = LabelFrame(root, text="Rock Paper Scissors Lizard Spock...", padx=50, pady=50) 
+frame.pack(padx=10, pady=10) 
 
-def myClick():
-    myLabel = Label(root, text="You clicked a button.", fg="green") 
-    myLabel.pack() 
+e = Entry(frame, width=35, borderwidth=3) 
+e.grid(row=0, column=1, columnspan=3, padx=10, pady=10) 
 
 #create a list of play options
 t = ["Rock", "Paper", "Scissors", "Lizard", "Spock"]
@@ -92,12 +92,12 @@ def shoot(player):
 
 
 #create buttons
-rockButton = Button(root, text="ROCK", width=25, command=lambda: shoot("Rock")) 
-paperButton = Button(root, text="PAPER", width=25, command=lambda: shoot("Paper")) 
-scissorsButton = Button(root, text="SCISSORS", width=25, command=lambda: shoot("Scissors")) 
-lizardButton = Button(root, text="LIZARD", width=25, command=lambda: shoot("Lizard"))
-spockButton = Button(root, text="SPOCK", width=25, command=lambda: shoot("Spock")) 
-
+rockButton = Button(frame, text="ROCK", width=25, command=lambda: shoot("Rock")) 
+paperButton = Button(frame, text="PAPER", width=25, command=lambda: shoot("Paper")) 
+scissorsButton = Button(frame, text="SCISSORS", width=25, command=lambda: shoot("Scissors")) 
+lizardButton = Button(frame, text="LIZARD", width=25, command=lambda: shoot("Lizard"))
+spockButton = Button(frame, text="SPOCK", width=25, command=lambda: shoot("Spock")) 
+quitButton = Button(frame, text="EXIT PROGRAM", width=50, command=root.destroy) 
 
 #place buttons
 rockButton.grid(row=1,column=0)
@@ -105,6 +105,9 @@ paperButton.grid(row=1,column=1)
 scissorsButton.grid(row=1,column=2)
 lizardButton.grid(row=1,column=3)
 spockButton.grid(row=1,column=4)
+quitButton.grid(row=2, column=1, columnspan=3, pady=10)
+
+
 
 
 root.mainloop() 
