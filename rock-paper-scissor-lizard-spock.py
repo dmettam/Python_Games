@@ -28,6 +28,7 @@ player = False
 
 #while player == False:
 #set player to True
+# move this function to the game_gui script for this file to call 
 def shoot(player): 
     #assign a random play to the computer
     computer = t[randint(0,4)]
@@ -35,8 +36,6 @@ def shoot(player):
     e.delete(0, END) 
     decision_tree(player, computer, e) 
     
-
-
 
 #create buttons
 rockButton = Button(frame, text="ROCK", width=25, command=lambda: shoot("Rock")) 
